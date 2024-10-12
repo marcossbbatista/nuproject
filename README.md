@@ -15,7 +15,7 @@ Este projeto tem como objetivo replicar a tela de **Limite de Cartão** do famos
 
 Neste projeto, recriamos a tela de **Limite de Cartão** do Nubank, que permite ao usuário visualizar e ajustar o limite disponível do cartão de crédito. O design segue uma abordagem simples e moderna, inspirada na interface real do aplicativo Nubank.
 
-<img src="images/nulimite.jpeg" alt="Print da Tela" width="300"/>
+<img src="images/nulimite.jpeg" alt="Print da Tela" width="200"/>
 
 O projeto utiliza **Dart** como linguagem principal, focando em uma arquitetura bem organizada e modular para facilitar a manutenção e extensão do código.
 
