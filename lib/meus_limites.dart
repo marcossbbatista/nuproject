@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class MeusLimites extends StatefulWidget {
   const MeusLimites({super.key});
@@ -8,9 +9,15 @@ class MeusLimites extends StatefulWidget {
 }
 
 class _MeusLimitesState extends State<MeusLimites> {
-  double valorEscolhido = 557;
+  double valorEscolhido = 800;
   double valorMinimo = 0;
-  double valorMaximo = 1800;
+  double valorMaximo = 1000;
+
+  final NumberFormat currencyFormat = NumberFormat.currency(
+    locale: 'pt_BR',
+    symbol: 'R\$',
+    decimalDigits: 2,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +25,7 @@ class _MeusLimitesState extends State<MeusLimites> {
       appBar: AppBar(
         title: Text(
           "Meus limites",
-          style: TextStyle(color: Colors.black, fontSize: 20),
+          style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
@@ -26,44 +33,45 @@ class _MeusLimitesState extends State<MeusLimites> {
         elevation: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.all(24),
+        padding: EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            SizedBox(height: 20),
+            SizedBox(),
             Center(
               child: Text(
-                "R\$ " + valorEscolhido.toStringAsFixed(2).replaceAll('.', ','),
+                currencyFormat.format(valorEscolhido),
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-            SizedBox(height: 8),
+            Divider(indent: 80,
+            endIndent: 80),
+            SizedBox(height: 2),
             Center(
               child: Text(
-                "R\$ ${valorEscolhido.toStringAsFixed(2).replaceAll('.', ',')} de limite disponível",
+                currencyFormat.format(valorEscolhido) + " disponível para uso",
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.green,
+                  fontSize: 14,
+                  color: Color(0xFF008000),
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
-            SizedBox(height: 40),
+            SizedBox(height: 60),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "R\$ " +
-                        valorMinimo.toStringAsFixed(2).replaceAll('.', ','),
+                    currencyFormat.format(valorMinimo),
                     style: TextStyle(fontSize: 14),
                   ),
                   Text(
-                    "R\$ " +
-                        valorMaximo.toStringAsFixed(2).replaceAll('.', ','),
+                    currencyFormat.format(valorMaximo),
                     style: TextStyle(fontSize: 14),
                   ),
                 ],
@@ -73,7 +81,7 @@ class _MeusLimitesState extends State<MeusLimites> {
               value: valorEscolhido,
               max: valorMaximo,
               min: valorMinimo,
-              activeColor: Colors.green,
+              activeColor: Color(0xFF008000),
               inactiveColor: Color(0xFFddfada),
               onChanged: (double valor) {
                 setState(() {
@@ -90,7 +98,7 @@ class _MeusLimitesState extends State<MeusLimites> {
             ListTile(
               leading: Icon(Icons.credit_card),
               title: Text(
-                "R\$ " + valorMaximo.toStringAsFixed(2).replaceAll('.', ','),
+                currencyFormat.format(valorMaximo),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text("Limite aprovado no cartão"),
@@ -113,14 +121,14 @@ class _MeusLimitesState extends State<MeusLimites> {
               subtitle: Text(
                   "Para compras online, boletos ou PIX. Esses valores não alteram seu limite pré-aprovado do cartão."),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 2),
             ListTile(
               leading: Icon(Icons.shopping_bag_outlined),
               title: Text(
                 "Limite para NuPay",
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 15,
+                  fontSize: 16,
                 ),
               ),
               trailing: Row(
@@ -129,15 +137,15 @@ class _MeusLimitesState extends State<MeusLimites> {
                   Padding(
                     padding: const EdgeInsets.only(right: 3.0),
                     child: Container(
-                      padding:
-                          EdgeInsets.all(5),
+                      padding: EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: Colors.purple,
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: GestureDetector(
                         child: Text(
                           "Conheça",
-                          style: TextStyle(color: Colors.white, fontSize: 10),
+                          style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
