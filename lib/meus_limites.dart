@@ -11,12 +11,18 @@ class MeusLimites extends StatefulWidget {
 class _MeusLimitesState extends State<MeusLimites> {
   double valorEscolhido = 800;
   double valorMinimo = 0;
-  double valorMaximo = 1000;
+  double valorMaximo = 1200;
 
-  final NumberFormat currencyFormat = NumberFormat.currency(
+  final NumberFormat formatoReal = NumberFormat.currency(
     locale: 'pt_BR',
     symbol: 'R\$',
     decimalDigits: 2,
+  );
+
+  final NumberFormat formatoDecimal = NumberFormat.currency(
+    locale: 'pt_BR',
+    symbol: '',
+    decimalDigits: 0,
   );
 
   @override
@@ -40,7 +46,7 @@ class _MeusLimitesState extends State<MeusLimites> {
             SizedBox(),
             Center(
               child: Text(
-                currencyFormat.format(valorEscolhido),
+                formatoReal.format(valorEscolhido),
                 style: TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.bold,
@@ -52,7 +58,7 @@ class _MeusLimitesState extends State<MeusLimites> {
             SizedBox(height: 2),
             Center(
               child: Text(
-                currencyFormat.format(valorEscolhido) + " disponível para uso",
+                formatoReal.format(valorEscolhido) + " disponível para uso",
                 style: TextStyle(
                   fontSize: 14,
                   color: Color(0xFF008000),
@@ -67,11 +73,11 @@ class _MeusLimitesState extends State<MeusLimites> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    currencyFormat.format(valorMinimo),
+                    formatoDecimal.format(valorMinimo),
                     style: TextStyle(fontSize: 14),
                   ),
                   Text(
-                    currencyFormat.format(valorMaximo),
+                    formatoDecimal.format(valorMaximo),
                     style: TextStyle(fontSize: 14),
                   ),
                 ],
@@ -81,6 +87,7 @@ class _MeusLimitesState extends State<MeusLimites> {
               value: valorEscolhido,
               max: valorMaximo,
               min: valorMinimo,
+              divisions: (valorMaximo/10).round(),
               activeColor: Color(0xFF008000),
               inactiveColor: Color(0xFFddfada),
               onChanged: (double valor) {
@@ -98,7 +105,7 @@ class _MeusLimitesState extends State<MeusLimites> {
             ListTile(
               leading: Icon(Icons.credit_card),
               title: Text(
-                currencyFormat.format(valorMaximo),
+                formatoReal.format(valorMaximo),
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               subtitle: Text("Limite aprovado no cartão"),
