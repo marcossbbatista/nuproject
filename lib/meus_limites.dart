@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:nulimite/limite_ideal.dart';
+import 'package:flutter/services.dart';
 
 class MeusLimites extends StatefulWidget {
   const MeusLimites({super.key});
@@ -9,9 +11,9 @@ class MeusLimites extends StatefulWidget {
 }
 
 class _MeusLimitesState extends State<MeusLimites> {
-  double valorEscolhido = 800;
+  double valorEscolhido = 1000;
   double valorMinimo = 0;
-  double valorMaximo = 1200;
+  double valorMaximo = 2300;
 
   final NumberFormat formatoReal = NumberFormat.currency(
     locale: 'pt_BR',
@@ -26,19 +28,29 @@ class _MeusLimitesState extends State<MeusLimites> {
   );
 
   @override
+  void _abrirLimiteIdeal() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LimiteIdeal(valorMaximo: valorMaximo),
+      ),
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
           "Meus limites",
-          style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.black, fontSize: 18),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
         leading: Icon(Icons.close, color: Colors.black),
         elevation: 0,
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,23 +59,15 @@ class _MeusLimitesState extends State<MeusLimites> {
             Center(
               child: Text(
                 formatoReal.format(valorEscolhido),
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: TextStyle(fontSize: 26),
               ),
             ),
-            Divider(indent: 80,
-            endIndent: 80),
-            SizedBox(height: 2),
+            Divider(indent: 80, endIndent: 80),
+            SizedBox(height: 4),
             Center(
               child: Text(
                 formatoReal.format(valorEscolhido) + " disponível para uso",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Color(0xFF008000),
-                  fontWeight: FontWeight.bold
-                ),
+                style: TextStyle(fontSize: 16, color: Color(0xFF008000)),
               ),
             ),
             SizedBox(height: 60),
@@ -87,7 +91,7 @@ class _MeusLimitesState extends State<MeusLimites> {
               value: valorEscolhido,
               max: valorMaximo,
               min: valorMinimo,
-              divisions: (valorMaximo/10).round(),
+              divisions: (valorMaximo / 10).round(),
               activeColor: Color(0xFF008000),
               inactiveColor: Color(0xFFddfada),
               onChanged: (double valor) {
@@ -104,12 +108,12 @@ class _MeusLimitesState extends State<MeusLimites> {
             SizedBox(height: 10),
             ListTile(
               leading: Icon(Icons.credit_card),
-              title: Text(
-                formatoReal.format(valorMaximo),
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+              title: Text(formatoReal.format(valorMaximo)),
               subtitle: Text("Limite aprovado no cartão"),
               trailing: Icon(Icons.chevron_right),
+              onTap: () {
+                _abrirLimiteIdeal();
+              },
             ),
             SizedBox(height: 16),
             Divider(),
@@ -118,7 +122,6 @@ class _MeusLimitesState extends State<MeusLimites> {
               title: Text(
                 "Limites Adicionais",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
               ),
@@ -133,10 +136,7 @@ class _MeusLimitesState extends State<MeusLimites> {
               leading: Icon(Icons.shopping_bag_outlined),
               title: Text(
                 "Limite para NuPay",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
+                style: TextStyle(fontSize: 16),
               ),
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -152,7 +152,10 @@ class _MeusLimitesState extends State<MeusLimites> {
                       child: GestureDetector(
                         child: Text(
                           "Conheça",
-                          style: TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),
