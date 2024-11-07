@@ -38,6 +38,12 @@ class _LimiteIdealState extends State<LimiteIdeal> {
   void _adicionarValor(double valor) {
     setState(() {
       novoLimite += valor;
+      _controller.value = TextEditingValue(
+        text: formatoReal.format(novoLimite),
+        selection: TextSelection.fromPosition(
+          TextPosition(offset: formatoReal.format(novoLimite).length),
+        ),
+      );
     });
     _verificarValor();
   }
@@ -78,17 +84,20 @@ class _LimiteIdealState extends State<LimiteIdeal> {
                 SizedBox(height: 40),
                 TextField(
                   controller: _controller,
-                  style: TextStyle(fontSize: 30.0),
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    color: Colors.black,
+                  ),
                   keyboardType: TextInputType.number,
                   inputFormatters: [
                     FilteringTextInputFormatter.digitsOnly,
-                    FormatadorTextoMoeda()
+                    FormatadorTextoMoeda(),
                   ],
                   decoration: InputDecoration(
                     hintText: formatoReal.format(novoLimite),
                     hintStyle: TextStyle(
                       fontSize: 30.0,
-                      color: _controller.text.isEmpty ? Colors.grey : Colors.black,
+                      color: Colors.grey,
                     ),
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
