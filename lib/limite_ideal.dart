@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/services.dart';
+import 'package:nulimite/motivo_pedido.dart';
 
 class LimiteIdeal extends StatefulWidget {
   final double valorMaximo;
@@ -53,6 +54,15 @@ class _LimiteIdealState extends State<LimiteIdeal> {
     symbol: 'R\$',
     decimalDigits: 2,
   );
+
+  void _abrirMotivoPedido() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MotivoPedido(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +173,7 @@ class _LimiteIdealState extends State<LimiteIdeal> {
             child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
-                onPressed: _mostrarBotao ? () {} : null,
+                onPressed: _mostrarBotao ? _abrirMotivoPedido : null,
                 style: ElevatedButton.styleFrom(
                   backgroundColor: _mostrarBotao ? Colors.purple : Colors.grey,
                   shape: CircleBorder(),

@@ -6,8 +6,9 @@ Este projeto tem como objetivo replicar telas do aplicativo **Nubank** usando **
 - [Descrição](#-descrição)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
 - [Telas do Projeto](#-telas-do-projeto)
-   - [Tela 1: Limite de Cartão](#tela-1-limite-de-cartão)
-   - [Tela 2: Ajuste de Limite](#tela-2-ajuste-de-limite)
+    - [Tela 1: Limite de Cartão](#tela-1-limite-de-cartão)
+    - [Tela 2: Ajuste de Limite](#tela-2-ajuste-de-limite)
+    - [Tela 3: Motivo Ideal](#tela-3-motivo-ideal)
 - [Como Executar o Projeto](#-como-executar-o-projeto)
 - [Contribuição](#-contribuição)
 - [Licença](#-licença)
@@ -55,6 +56,21 @@ Ao clicar na opção "Limite aprovado no cartão", o usuário é levado a uma te
 - Campo de entrada de valor com formatação em Real, configurado para que o valor comece a ser digitado da direita para a esquerda.
 - Classe de Formatação de Moeda: Foi criada uma classe dedicada para formatar o texto inserido pelo usuário em formato de moeda (R$), proporcionando uma experiência de entrada mais intuitiva e precisa
 - Botão de confirmação no canto inferior direito, habilitado somente se o valor inserido for maior que o limite atual.
+
+---
+
+### Tela 3: Motivo Ideal
+
+Na tela de "Ajuste de Limite", colocando um valor superior ao limite atual é habilitado um Botão de confirmação que levará para essa terceira tela para que o usuário escolha o motivo da solicitação do aumento de limite.
+
+<div align="center">
+  <img src="images/motivo_ideal.jpeg" alt="Print da Tela de Motivo Ideal" width="300"/>
+</div>
+
+#### Funcionalidades da Tela de Motivo Ideal
+
+- É apresentado seis motivos, onde é possível escolher apenas uma entre elas.
+- Botão "Escolha o motivo" no inferior da tela, habilitado somente se for selecionado uma dentre os seis motivos disponíveis.
 
 ## 🛠️ Como Executar o Projeto
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:nulimite/limite_ideal.dart';
 import 'package:nulimite/meus_limites.dart';
 
 void main() {
