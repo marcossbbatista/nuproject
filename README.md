@@ -8,7 +8,7 @@ Este projeto tem como objetivo replicar telas do aplicativo **Nubank** usando **
 - [Telas do Projeto](#-telas-do-projeto)
     - [Tela 1: Limite de Cartão](#tela-1-limite-de-cartão)
     - [Tela 2: Ajuste de Limite](#tela-2-ajuste-de-limite)
-    - [Tela 3: Motivo Ideal](#tela-3-motivo-ideal)
+    - [Tela 3: Motivo Pedido](#tela-3-motivo-pedido)
 - [Como Executar o Projeto](#-como-executar-o-projeto)
 - [Contribuição](#-contribuição)
 - [Licença](#-licença)
@@ -59,7 +59,7 @@ Ao clicar na opção "Limite aprovado no cartão", o usuário é levado a uma te
 
 ---
 
-### Tela 3: Motivo Ideal
+### Tela 3: Motivo Pedido
 
 Na tela de "Ajuste de Limite", colocando um valor superior ao limite atual é habilitado um Botão de confirmação que levará para essa terceira tela para que o usuário escolha o motivo da solicitação do aumento de limite.
 
@@ -67,7 +67,7 @@ Na tela de "Ajuste de Limite", colocando um valor superior ao limite atual é ha
   <img src="images/motivo_pedido.jpeg" alt="Print da Tela de Motivo Ideal" width="300"/>
 </div>
 
-#### Funcionalidades da Tela de Motivo Ideal
+#### Funcionalidades da Tela de Motivo Pedido
 
 - É apresentado seis motivos, onde é possível escolher apenas uma entre elas.
 - Botão "Escolha o motivo" no inferior da tela, habilitado somente se for selecionado uma dentre os seis motivos disponíveis.
