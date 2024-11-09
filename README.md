@@ -64,7 +64,7 @@ Ao clicar na opção "Limite aprovado no cartão", o usuário é levado a uma te
 Na tela de "Ajuste de Limite", colocando um valor superior ao limite atual é habilitado um Botão de confirmação que levará para essa terceira tela para que o usuário escolha o motivo da solicitação do aumento de limite.
 
 <div align="center">
-  <img src="images/motivo_ideal.jpeg" alt="Print da Tela de Motivo Ideal" width="300"/>
+  <img src="images/motivo_pedido.jpeg" alt="Print da Tela de Motivo Ideal" width="300"/>
 </div>
 
 #### Funcionalidades da Tela de Motivo Ideal
