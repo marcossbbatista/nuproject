@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:nulimite/limite_ideal.dart';
 import 'package:flutter/services.dart';
+import 'package:nulimite/nupay.dart';
 
 class MeusLimites extends StatefulWidget {
   const MeusLimites({super.key});
@@ -34,6 +35,13 @@ class _MeusLimitesState extends State<MeusLimites> {
       MaterialPageRoute(
         builder: (context) => LimiteIdeal(valorMaximo: valorMaximo),
       ),
+    );
+  }
+
+  void _abrirNuPay() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Nupay()),
     );
   }
 
@@ -163,6 +171,9 @@ class _MeusLimitesState extends State<MeusLimites> {
                   Icon(Icons.chevron_right),
                 ],
               ),
+              onTap: () {
+                _abrirNuPay();
+              },
             ),
           ],
         ),
