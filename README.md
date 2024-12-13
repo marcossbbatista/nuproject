@@ -1,21 +1,18 @@
 # 💳 Clone de Telas - Projeto Nubank
 
-Este projeto tem como objetivo replicar telas do aplicativo **Nubank** usando **Dart**, oferecendo uma experiência interativa e próxima do visual do app original. O projeto inclui duas telas principais: **Tela de Limite de Cartão** e **Tela de Ajuste de Limite**.
+Este projeto tem como objetivo replicar telas do aplicativo **Nubank** usando **Dart**, oferecendo uma experiência interativa e próxima do visual do app original.
 
 ## 📋 Índice
 - [Descrição](#-descrição)
 - [Tecnologias Utilizadas](#-tecnologias-utilizadas)
-- [Telas do Projeto](#-telas-do-projeto)
-    - [Tela 1: Limite de Cartão](#tela-1-limite-de-cartão)
-    - [Tela 2: Ajuste de Limite](#tela-2-ajuste-de-limite)
-    - [Tela 3: Motivo Pedido](#tela-3-motivo-pedido)
+- [Demonstração do Projeto](#-demonstração-do-projeto)
 - [Como Executar o Projeto](#-como-executar-o-projeto)
 - [Contribuição](#-contribuição)
 - [Licença](#-licença)
 
 ## 📄 Descrição
 
-O projeto replica a experiência de navegação e interação de telas do **Nubank**. Atualmente, ele conta com duas telas principais, oferecendo funcionalidades como ajuste de limite de crédito e escolha do limite ideal.
+O projeto replica a experiência de navegação e interação de telas do **Nubank**, oferecendo funcionalidades como ajuste de limite de crédito e escolha de motivos para alteração de limite.
 
 ## 🚀 Tecnologias Utilizadas
 
@@ -23,56 +20,15 @@ O projeto replica a experiência de navegação e interação de telas do **Nuba
 - **Flutter** (Opcional): Para uma implementação completa no mobile.
 - **Material Design**: Interface elegante e responsiva.
 
-## 🖥️ Telas do Projeto
+## 🌐 Demonstração do Projeto
 
-### Tela 1: Limite de Cartão
-
-Nesta tela, o usuário pode visualizar o limite atual do cartão, o valor disponível e ajustar o limite de crédito usando um slider.
+Confira o vídeo abaixo para ver as funcionalidades do app em ação:
 
 <div align="center">
-  <img src="images/nulimite.jpeg" alt="Print da Tela de Limite" width="300"/>
+  <img src="images/nuproject.gif" alt="Demonstração do Projeto" width="500"/>
 </div>
 
-#### Funcionalidades da Tela de Limite
-
-- Exibir o **Limite Atual** e o **Limite Disponível**.
-- Slider interativo para ajustar o limite de crédito.
-- Exibir informações adicionais sobre o limite aprovado.
-- Opção para acessar os **Limites Adicionais** e ajustar o limite para serviços como o NuPay.
-
----
-
-### Tela 2: Ajuste de Limite
-
-Ao clicar na opção "Limite aprovado no cartão", o usuário é levado a uma tela para escolher o limite ideal. Nesta tela, ele pode escolher o limite ideal ajustando o valor por meio de botões predefinidos ou inserindo um valor personalizado.
-
-<div align="center">
-  <img src="images/limite_ideal.jpeg" alt="Print da Tela de Ajuste de Limite" width="300"/>
-</div>
-
-#### Funcionalidades da Tela de Ajuste de Limite
-
-- Exibir o limite atual e permitir ajustes automáticos com os botões de valores predefinidos (+ R$ 100, + R$ 250, + R$ 500).
-- Campo de entrada de valor com formatação em Real, configurado para que o valor comece a ser digitado da direita para a esquerda.
-- Classe de Formatação de Moeda: Foi criada uma classe dedicada para formatar o texto inserido pelo usuário em formato de moeda (R$), proporcionando uma experiência de entrada mais intuitiva e precisa
-- Botão de confirmação no canto inferior direito, habilitado somente se o valor inserido for maior que o limite atual.
-
----
-
-### Tela 3: Motivo Pedido
-
-Na tela de "Ajuste de Limite", colocando um valor superior ao limite atual é habilitado um Botão de confirmação que levará para essa terceira tela para que o usuário escolha o motivo da solicitação do aumento de limite.
-
-<div align="center">
-  <img src="images/motivo_pedido.jpeg" alt="Print da Tela de Motivo Ideal" width="300"/>
-</div>
-
-#### Funcionalidades da Tela de Motivo Pedido
-
-- É apresentado seis motivos, onde é possível escolher apenas uma entre elas.
-- Botão "Escolha o motivo" no inferior da tela, habilitado somente se for selecionado uma dentre os seis motivos disponíveis.
-
-## 🛠️ Como Executar o Projeto
+## 💡 Como Executar o Projeto
 
 ### Pré-requisitos
 
